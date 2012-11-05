@@ -8,31 +8,23 @@
 <head>
 <title>{{$title}}</title>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
 <body>
-<div style="border-width: thin; border-style: groove; background-color: #00FFFF; font-family: 'Arial Rounded MT Bold';">
-<table width="100%">
-    <tr>
-    <td>
-        <span style="font-size:large">{{$page_title}}<br></span><span style="font-size:medium">{{$title}}</span>
-
-    </td>
-    <td>&nbsp;</td>
-    <td align="right">
-        <form action="index.php" method="get" >
-            <div>
-                <input name="query" type="text">
-                <input style="vertical-align:top" name="search" type="submit" value="Search">
+    <div class='header'>
+        <div class='title'>
+            <a href="index.php">{{$page_title}}</a> | <small>{{$title}}</small>
+        </div>
+        <div class='search'>
+            <form action="index.php" method="GET" >
+                <input name="query" type="text" value='{{$last_search}}'>
+                <input name="search" type="submit" value="Search">
                 <input type="hidden" name="m" value="search">
-            </div>
-            <div style="font-size:80%">
-                Current search: {{$last_search}}
-                {{if $search_error}}<br>{{$search_error}}{{/if}}
-            </div>
-        </form>
-    </td>
-    </tr>
+            </form>
+        </div>
+    </div>
+<table width="100%">
     <tr>
 {{if $page}}
     <form action="index.php" method="get" >
